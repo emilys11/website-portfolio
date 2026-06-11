@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emily's Gifs</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --hot-blue: #1100ff;
+  --cyan: #000550;
+  --purple: #9900cc;
+  --dark-purple: #000533;
+  --lime: #ccff00;
+  --very-light-white: #f1f9ff;
+  --bg-dark: #0d0011;
+  --text-main: #000000;
+  --table-bg: rgba(255, 255, 255, 0.85);
+  --border-glow: #002fff;
+}
+
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #006eff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #b6d5ff; 
+  border-radius: 10px;
+  border: 2px solid #001b57; 
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #80d8ff;
+}
+
+
+body {
+  background-color: #000000;
+  background-image: url("imgs/bglace.gif");
+  background-repeat: repeat-x repeat-y;
+  font-size: 20px;
+  min-height: 100vh;
+  cursor: url("imgs/cursors/Wii Pointer.cur"), auto;
+  font-family: 'Nintendo', monospace;
+  color: var(--text-main);
+}
+
+a:hover,
+button:hover,
+.pet-btn:hover,
+.gallery-item:hover,
+.project-link:hover,
+.nav-bar a:hover {
+    cursor: url("imgs/cursors/Wii Pointer Open Hand.cur"), pointer;
+    color: #00ffff;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.03),
+    rgba(0,0,0,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
+.page-wrapper {
+  width: 85%;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.site-header {
+  text-align: center;
+  padding: 20px 10px 10px;
+  position: relative;
+  font-size: 30px;
+}
+
+.site-header a:hover {
+  color: #00ffff;
+  -webkit-text-fill-color: #00ffff;
+  text-shadow: none;
+}
+
+.site-title {
+  font-family: 'Nintendo', monospace;
+  font-size: 55px;
+  color: var(--hot-blue);
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.gif-space img{
+  vertical-align:middle;
+}
+
+
+
+@font-face { font-family: Nintendo; src: url('fonts/Nintendo-DS-BIOS.ttf') format('truetype'); }
+@font-face { font-family: OldEnglish; src: url('fonts/EnglishTowne.ttf') format('truetype'); }
+
+
+.site-footer { text-align: center; padding: 20px; border-top: 2px solid #0000ff; margin-top: 16px; font-size: 14px; color: #666; }
+.site-footer a { color: var(--purple); }
+
+.divider { text-align: center; color: var(--hot-blue); font-size: 20px; margin: 4px 0; letter-spacing: 4px; }
+
+.rainbow-text, .site-header {
+  background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+  text-shadow: 0px 3px #0011fa;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 600px) {
+  .main-table, .main-table tbody, .main-table tr, .main-table td { display: block; width: 100%; }
+  .col-left { width: 100%; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+</style>
+</head>
+<body>
+
+<audio id="audioPlayer" preload="metadata"></audio>
+
+<!-- STICKY MARQUEE NAV — shown only when the real nav scrolls out of view -->
+<div class="sticky-nav" id="stickyNav">
+  <div class="sticky-nav-inner" id="stickyNavInner">
+    <!-- links injected twice by JS for seamless loop -->
+  </div>
+</div>
+
+<div class="page-wrapper">
+<div class="site-header">
+  <div class="site-title">
+    <img src="imgs/emily.gif" alt="">
+    ~*~  Emily's Favourite Gifs ~*~
+    <img src="imgs/emily.gif" alt="" style="transform: scaleX(-1);">
+  </div>
+  <a href="index.html">go back to main page</a>
+  <br>
+  <br><img src="imgs/welcome.gif" alt=""><br>
+  <br><img src="imgs/favgifs/construction.gif" alt=""><br>
+</div>
+
+<div class="gif-space" id="gif-space">
+    <!-- ROW 1 -->
+    <img src="imgs/favgifs/fairy1.gif">
+    <img src="imgs/favgifs/animegirl.gif">
+    <img src="imgs/favgifs/sun.gif">
+    <img src="imgs/favgifs/fairy.gif">
+    <img src="imgs/favgifs/singing.gif">
+    <img src="imgs/favgifs/jukebox.gif">
+    <img src="imgs/favgifs/pink.gif">
+    <img src="imgs/favgifs/singing3.gif">
+    <img src="imgs/favgifs/pink2.gif">
+    <img src="imgs/favgifs/pink3.gif">
+    <img src="imgs/favgifs/singing1.gif">
+    <img src="imgs/favgifs/blue1.gif">
+    <img src="imgs/favgifs/blue.gif">
+
+    <!-- ROW 2 -->
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/girl.gif">
+    <img src="imgs/favgifs/bw.gif">
+    <img src="imgs/favgifs/vampiress.gif">
+    <img src="imgs/favgifs/goth.gif">
+    <img src="imgs/favgifs/goth1.gif">
+    <img src="imgs/favgifs/veronica.gif">
+    <img src="imgs/favgifs/ball.gif">
+
+    <img src="imgs/favgifs/ball1.gif">
+    <img src="imgs/favgifs/habbo.gif">
+    <img src="imgs/favgifs/cat.gif">
+    <img src="imgs/favgifs/goonies.gif">
+    <img src="imgs/favgifs/coffee.gif">
+  
+    <img src="imgs/favgifs/habbo1.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/music.gif">
+    <img src="imgs/favgifs/music1.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/hi.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+    <img src="imgs/favgifs/beach.gif">
+</div>
+
+<script>
+
+  document.querySelectorAll('#gif-space img').forEach(img => {
+    const jitter = (Math.random() * 40) - 20;
+    img.style.marginTop = jitter + 'px';
+  });
+
+
+  (function() {
+    const TRAIL_LENGTH = 15;
+    const dots = [];
+
+    for (let i = 0; i < TRAIL_LENGTH; i++) {
+      const dot = document.createElement('div');
+      dot.style.cssText = `
+        position: fixed;
+        pointer-events: none;
+        border-radius: 50%;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+      `;
+      document.body.appendChild(dot);
+      dots.push({ el: dot, x: 0, y: 0 });
+    }
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    const OFFSET_X = 10;
+    const OFFSET_Y = 17;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function update() {
+      dots[0].x += (mouseX + OFFSET_X - dots[0].x) * 0.99;
+      dots[0].y += (mouseY + OFFSET_Y - dots[0].y) * 0.99;
+
+      for (let i = 1; i < TRAIL_LENGTH; i++) {
+        dots[i].x += (dots[i - 1].x - dots[i].x) * 0.45;
+        dots[i].y += (dots[i - 1].y - dots[i].y) * 0.45;
+      }
+
+      dots.forEach((dot, i) => {
+        const progress = i / TRAIL_LENGTH;
+        const size = Math.max(1, 12 * (1 - progress));
+        const opacity = (1 - progress) * 0.6;
+
+        const r = Math.round(progress * 80);
+        const g = Math.round(100 + progress * 155);
+        const b = 255;
+
+        dot.el.style.left = `${dot.x}px`;
+        dot.el.style.top = `${dot.y}px`;
+        dot.el.style.width = `${size}px`;
+        dot.el.style.height = `${size}px`;
+        dot.el.style.background = `rgb(${r}, ${g}, ${b})`;
+        dot.el.style.opacity = opacity;
+        dot.el.style.boxShadow = `0 0 ${size * 1.5}px rgb(${r}, ${g}, ${b})`;
+      });
+
+      requestAnimationFrame(update);
+    }
+
+    update();
+  })();
+
+</script>
+</body>
+</html>

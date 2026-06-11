@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emily's Website</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<audio id="audioPlayer" preload="metadata"></audio>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<!--
+              ,.  _~-.,               .
+           ~'`_ \/,_. \_
+          / ,"_>@`,__`~.)             |           .
+          | |  @@@@'  ",! .           .          '
+          |/   ^^@     .!  \          |         /
+          `' .^^^     ,'    '         |        .             .
+           .^^^   .          \                /          .
+          .^^^       '  .     \       |      /       . '
+.,.,.     ^^^             ` .   .,+~'`^`'~+,.     , '
+&&&&&&,  ,^^^^.  . ._ ..__ _  .'             '. '_ __ ____ __ _ .. .  .
+%%%%%%%%%^^^^^^%%&&;_,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,
+&&&&&%%%%%%%%%%%%%%%%%%&&;,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^`'~=
+%%%%%&&&&&&&&&&&%%%%&&&_,.;^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,
+%%%%%%%%%&&&&&&&&&-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,.-==--^'~=-.,__,.-=~'
+##mjy#####*"'
+_,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,.-=~'`^`'~=-.,__,.-=~'
+
+~`'^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^`'~=-.,__,.-=~'`^
+
+-->
+<button class="dark-toggle" id="darkToggle" title="Toggle dark mode"><img src="imgs/suntoggle.gif" /></button>
+
+<div class="sticky-nav" id="stickyNav">
+  <div class="sticky-nav-inner" id="stickyNavInner">
+  </div>
+</div>
+
+<div class="page-wrapper">
+<div class="site-header">
+  <div class="site-title">
+    <img src="imgs/emily.gif" alt="">
+      ~*~   Emily's Website   ~*~
+    <img src="imgs/emily.gif" alt="" style="transform: scaleX(-1);">
+  </div>
+  <div class="visitor-counter" id="visitorCounter">
+    Welcome! You are the 0th visitor.
+  </div>
+  <br><img src="imgs/welcome.gif" alt=""><br>
+</div>
+
+<div class="nav-bar" id="mainNav">
+  <a href="#about"><img src="imgs/navbar.gif" width="auto" height="22px" alt=""> About</a>
+  <a href="#projects"><img src="imgs/navbar1.gif" width="auto" height="22px" alt=""> Projects</a>
+  <a href="#gallery"><img src="imgs/navbar3.gif" width="auto" height="22px" alt=""> Gallery</a>
+  <a href="#pet"><img src="imgs/navbar2.gif" width="auto" height="22px" alt=""> My Pet</a>
+  <a href="#guestbook"><img src="imgs/navbar4.gif" width="auto" height="22px" alt=""> Guestbook</a>
+  <a href="#contact"><img src="imgs/navbar5.gif" width="auto" height="22px" alt=""> Contact</a>
+</div>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<table class="main-table">
+<tbody><tr>
+<!--LEFT COLUMN-->
+<td class="col-left">
+  <span class="section-anchor" id="about"></span>
+  <div class="box">
+    <div class="box-header"> <img src="imgs/aboutmetitle.gif" alt="">About Me</div>
+    <div class="box-body">
+      <div class="profile-pic"><img src="imgs/aboutme3.png" width="300px" height="auto" alt=""></div>
+      <table class="info-table">
+        <tr><td class="label">Name:</td><td class="val">Emily Smelyansky</td></tr>
+        <tr><td class="label">Languages:</td><td class="val">English, French, Russian</td></tr>
+        <tr><td class="label">Programming Languages:</td><td class="val">Java, Python, C, C#, Assembly Language, JavaScript, SQL, OCaml</td></tr>
+        <tr><td class="label">Tools:</td><td class="val">Git, Unity, Visual Studio, Figma, Canva, Notion, Teams, Logisim, LaTeX, JUnit, JavaFX</td></tr>
+        <tr><td class="label">Favourite algorithm:</td><td class="val">Minimax algorithm (with alpha beta pruning)</td></tr>
+      </table>
+      <img src="imgs/aboutmebelow.gif" style="display:block; margin:0 auto;" alt="">
+    </div>
+    <p style="text-align: center;">Fière Québécoise.</p>
+    <br>
+  </div>
+
+  <span class="section-anchor" id="contact"></span>
+  <div class="box">
+    <div class="box-header"><img src="imgs/contacttitle.gif" alt=""> Contact Me</div>
+    <div class="box-body">
+      <ul class="contact-list">
+        <li><img src="imgs/mail.gif" height="25px" alt=""><a href="mailto:emilysmelly11@gmail.com" target="_blank">emilysmelly11@gmail.com</a></li>
+        <li><img src="imgs/github.png" height="25px" alt=""><a href="https://www.github.com/emilys11" target="_blank">emilys11</a></li>
+        <li><img src="imgs/itch.png" height="25px" alt=""><a href="https://esmely11.itch.io/" target="_blank">esmely11</a></li>
+        <li><img src="imgs/linkedin.png" height="25px" alt=""><a href="https://www.linkedin.com/in/emily-smelyansky-972150346/" target="_blank">Emily Smelyansky</a></li>
+        <li><img src="imgs/roblox.png" height="25px" alt=""><a href="https://www.roblox.com/users/82053616/profile" target="_blank">Pearl4eva</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-anchor" id="pet"></span>
+  <div class="box">
+    <div class="box-header"><img src="imgs/pettitle.gif" alt="">My Pet Blob</div>
+    <div class="box-body">
+      <div class="pet-area">
+        <div class="pet-display" id="petDisplay"><img src="imgs/pet.gif" alt=""></div>
+        <div class="pet-msg" id="petMsg">*bounces super high*</div>
+        <div class="pet-stats">
+          <div class="stat-bar-wrap">
+            <div class="stat-label">Hunger</div>
+            <div class="stat-bar"><div class="stat-fill hunger" id="hungerBar" style="width:70%"></div></div>
+          </div>
+          <div class="stat-bar-wrap">
+            <div class="stat-label">Happy</div>
+            <div class="stat-bar"><div class="stat-fill happy" id="happyBar" style="width:85%"></div></div>
+          </div>
+          <div class="stat-bar-wrap">
+            <div class="stat-label">Energy</div>
+            <div class="stat-bar"><div class="stat-fill energy" id="energyBar" style="width:90%"></div></div>
+          </div>
+        </div>
+        <div class="pet-btns">
+          <button class="pet-btn" onclick="feedPet()"><img src="imgs/feed.gif" class="inline-gif" alt=""> Feed</button>
+          <button class="pet-btn" onclick="petAnimal()"><img src="imgs/hand.gif" class="inline-gif" alt=""> Pet</button>
+          <button class="pet-btn" onclick="playPet()"><img src="imgs/play.gif" class="inline-gif" alt=""> Play</button>
+        </div>
+      </div>
+      <div class="about-text"><p>This is my pet blob. I found him lurking in Atwater... Please take good care of him.</p></div>
+    </div>
+  </div>
+
+  <!--ART GALLERY-->
+  <span class="section-anchor" id="gallery"></span>
+  <div class="box">
+    <div class="box-header"><img src="imgs/gallerytitle.gif" class="inline-gif" alt=""> Art Gallery</div>
+    <div class="box-body">
+      <p style="font-size:18px;color:#3d3838;margin-bottom:8px">← click a piece to view fullsize →</p>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </div>
+
+</td>
+
+<!--RIGHT COLUMN-->
+<td class="col-right">
+
+  <span class="section-anchor" id="music"></span>
+  <div class="box">
+    <div class="box-header"><img src="imgs/musictitle.gif" width="20px" height="20px" alt="">Listen To Music While You Are Here</div>
+    <div class="box-body">
+
+      <!--now playing-->
+      <div class="now-playing">
+        <div class="vinyl" id="vinyl"></div>
+        <div class="track-info">
+          <div class="track-title" id="trackTitle">— select a track to play —</div>
+          <div class="track-artist" id="trackArtist">&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="player-status" id="playerStatus">&nbsp;</div>
+
+      <div class="player-controls">
+        <button class="ctrl-btn" onclick="prevTrack()" title="Previous">⏮</button>
+        <button class="ctrl-btn" id="playBtn" onclick="togglePlay()" title="Play/Pause">▶</button>
+        <button class="ctrl-btn" onclick="nextTrack()" title="Next">⏭</button>
+        <div class="progress-wrap">
+          <div class="progress-bar-outer" id="progressBar" onclick="seekTrack(event)" title="Click to seek">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time-display" id="timeDisplay">0:00 / 0:00</div>
+        </div>
+      </div>
+
+      <div class="vol-row">
+        <label for="volSlider">🔊 Vol</label>
+        <input type="range" id="volSlider" min="0" max="100" value="70" oninput="setVol(this.value)">
+        <span class="vol-pct" id="volDisplay">70%</span>
+      </div>
+
+      <div class="playlist-scroll-wrap">
+        <ul class="playlist" id="playlist"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!--ABOUT ME LONG-->
+  <div class="box">
+    <div class="box-header"><img src="imgs/whoamititle.gif" alt=""> Who Am I?</div>
+    <div class="box-body">
+      <div class="about-text">
+        <p>Hi! My name is <em>Emily</em> and I am a <em>4th</em> year undergraduate <em>Computer Science</em> student at <em>McGill University.</em><img src="imgs/computer.gif" alt="" class="inline-gif"></p>
+
+        <p>Outside of my studies, I currently serve as <em>VP Communications</em> for the <em>GameDev McGill</em> club, where I help connect students through events, announcements, and graphic advertisements using <em>Figma</em> for the events. Previously, I was the <em>Graphics and Events Director</em> for <em>Concordia Game Development</em> where I created promotional material using <em>Canva</em> for events and helping organize activities for aspiring game developers.</p>
+
+        <p>Additionally, I was an intern at <em>Université de Montréal</em> as a <em>Game Developer</em> and gained hands on experience creating educational games in the goal of making the learning process more interactive!</p>
+
+        <p>One of my favorite parts of game development is participating in <em>game jams</em>. I've taken part in a handful of jams over my undergraduate studies, with many of my projects earning a place on the podium. I love the collaborative environment that jams create, bringing together people with different skills to build something exciting in a short amount of time and also the potential to make new friends. <img src="imgs/friends.gif" alt="" class="inline-gif"></p>
+
+        <p>Beyond game development, I've discovered a strong interest in several areas through my coursework. Subjects such as:</p>
+        <ul style="list-style-type:square;">
+          <li>Web Development</li>
+          <li>Database Systems</li>
+          <li>Object Oriented Programming</li>
+          <li>Theory of Computation</li>
+          <li>Functional Programming</li>
+          <li>Artificial Intelligence</li>
+          <li>UX/UI design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--PROJECTS-->
+  <span class="section-anchor" id="projects"></span>
+  <div class="box">
+    <div class="box-header"><img src="imgs/projectstitle.gif" height="25px" width="auto" alt="">My Projects</div>
+    <div class="box-body">
+      <!-- PROJECT 1 -->
+      <div class="project-entry">
+        <div class="project-title"><img src="imgs/star.gif"> Single Mom In Your Area (3D Unity Game)</div>
+        <div class="project-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="project-desc">
+          <h3><img src="imgs/trophy.gif" class="inline-gif" alt=""><b>Won 2nd place and Most Creative Award at the McGameJam 2026</b></h3>
+          <p><img src="imgs/projectss/singlemom1.png" class="project-ss"><img src="imgs/projectss/singlemom.png" class="project-ss"></p>
+          <p>This project is a 3D horror survival game that was made under 48 hours with 7 talented people and myself. The goal of the game is to collect all 5 babies of a tall scary woman who is hunting you down. </p>
+          <br>
+          <p><b>How I contributed:</b> </p>
+          <ul style="list-style-type:square; padding-left:20px">
+            <li>Programmed and designed the opening scene.</li>
+            <li>Integrated microphone detection that spawns the enemy closer to the player according to the noise amplitude.</li>
+            <li>Designed and drew the main menu background, the popup ad, and the babies.</li>
+        </ul>
+        <br>
+        </div>
+        <a href="https://esmely11.itch.io/single-mom-in-your-area" class="project-link" target="_blank">→ view Single Mom in Your Area</a>
+      </div>
+      <!-- PROJECT 2 -->
+      <div class="project-entry">
+        <div class="project-title"><img src="imgs/star.gif"> Operation: Melodica (3D Unity Game)</div>
+        <div class="project-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="project-desc">
+          <h3><img src="imgs/trophy.gif" class="inline-gif" alt=""><b>Won 3rd place at GDM Studios 2026</b></h3>
+          <p><img src="imgs/projectss/om.png" class="project-ss"><img src="imgs/projectss/om1.png" class="project-ss"></p>
+          <p>This project is a 3D exploration and rhythm game that was made in 3 months with 6 talented people and myself. In this game, you are an astronaut who explores melodical planets.</p>
+          <br>
+          <p><b>How I contributed:</b> </p>
+          <ul style="list-style-type:square; padding-left:20px">
+            <li>Programmed the rhythm part (main game loop, see first screenshot).</li>
+            <li>Integrated the UI for the rhythm part.</li>
+            <li>Animated and programmed the states of the astronaut (idle, walking), the battle animations during the rhythm part (attack,damaged).</li>
+        </ul>
+        <br>
+        </div>
+        <a href="https://esmely11.itch.io/operation-melodica" class="project-link" target="_blank">→ view Operation: Melodica</a>
+      </div>
+      <!-- PROJECT 3 -->
+      <div class="project-entry">
+        <div class="project-title"><img src="imgs/star.gif"> Dino Souls</div>
+        <div class="project-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="project-desc">
+          <h3><img src="imgs/trophy.gif" class="inline-gif" alt=""><b>Won 2nd place at the ÉTS Test Jam 2026</b></h3>
+          <p><img src="imgs/projectss/ds.png" class="project-ss" height="159px"><img src="imgs/projectss/ds1.png" class="project-ss"></p>
+          <p>This project is a 2D arcade-like dinosaur extinction simulator that was made under 48 hours with 5 talented people and myself. In this game, you must launch natural disasters on an island inhabited by dinosaurs and make them go extinct.</p>
+          <br>
+          <p><b>How I contributed:</b> </p>
+          <ul style="list-style-type:square; padding-left:20px">
+            <li>Programmed the currency logic and the floating animations of currency when a dinosaur is killed.</li>
+            <li>Programmed and designed the leaderboard by storing scores in a JSON data file.</li>
+            <li>Designed and drew the dinosaurs, the natural disasters, and the main menu background.</li>
+        </ul>
+        <br>
+        </div>
+        <a href="https://esmely11.itch.io/dino-souls" class="project-link" target="_blank">→ view Dino Souls</a>
+      </div>
+      <!-- PROJECT 3.1 lmao -->
+      <div class="project-entry">
+        <div class="project-title"><img src="imgs/star.gif"> Introduction To Shaders Graphic</div>
+        <div class="project-tags"><span class="tag">Unity</span><span class="tag">CapCut</span></div>
+        <div class="project-desc">
+          <p><video width="566px" controls><source src="imgs/projectss/cgdshader.mp4" type="video/mp4"></video></p>
+          <p>This was a graphic made for the "Introduction to Shaders" event at the Concordia University.</p>
+        <br>
+        </div>
+        <a href="https://www.instagram.com/reel/DT0bemEjXMP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="project-link" target="_blank">→ view it on the official Instagram account</a>
+      </div>
+      <!-- PROJECT 4 -->
+      <div class="project-entry">
+        <div class="project-title"><img src="imgs/star.gif"> Sheep in Wolf's Clothing</div>
+        <div class="project-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="project-desc">
+          <p><img src="imgs/projectss/siwc.png" class="project-ss"><img src="imgs/projectss/siwc1.png" class="project-ss"></p>
+          <p>This personal project is a 2D strategy platformer made under 72 hours. The player controls a sheep that must retrieve a plushie while dodging multiple obstacles and deceive the wolf enemies by putting on a wolf costume.</p>
+        </div>
+        <a href="https://esmely11.itch.io/sheep-in-wolfs-clothing" class="project-link" target="_blank">→ Sheep in Wolf's Clothing</a>
+      </div>
+      <!-- PROJECT 5 -->
+      <div class="project-entry">
+        <div class="project-title"><img src="imgs/star.gif"> Sal's Pizza</div>
+        <div class="project-tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+        <div class="project-desc">
+          <p><img src="imgs/projectss/sp.png" class="project-ss"><img src="imgs/projectss/sp1.png" class="project-ss"></p>
+          <p>This personal project is a 3D horror game and was my first ever Unity game! The player must retrieve a pizza slice inside a dark maze-like establishment and escape before Sal Vulcano from Impractical Jokers finds and kills them.</p>
+          <p>(This game is not affiliated with truTV's Impractical Jokers)</p>
+        </div>
+        <a href="https://esmely11.itch.io/sals-pizza" class="project-link" target="_blank">→ Sal's Pizza</a>
+      </div>
+    </div>
+  </div>
+
+  <!--GUESTBOOK-->
+  <span class="section-anchor" id="guestbook"></span>
+  <div class="box">
+    <div class="box-header"><img src="imgs/guestbooktitle.gif"> Sign my guestbook!!</div>
+    <div class="box-body">
+      <div class="gb-form">
+        <input type="text" id="gbName" placeholder="your name / alias" maxlength="30">
+        <textarea id="gbMsg" placeholder="leave me a message!! (◕‿◕)" maxlength="280"></textarea>
+        <div class="gb-emojis" id="emojiPicker"></div>
+        <button class="gb-submit" onclick="submitGuestbook()">✦ Post to Guestbook ✦</button>
+      </div>
+      <div class="divider" style="margin:8px 0">- - - ✦ - - -</div>
+      <div class="gb-entries" id="gbEntries">loading entries...</div>
+    </div>
+  </div>
+
+
+
+</td>
+</tr></tbody>
+</table>
+<!--
+          FISHKISSFISHKIS               
+       SFISHKISSFISHKISSFISH            F
+    ISHK   ISSFISHKISSFISHKISS         FI
+  SHKISS   FISHKISSFISHKISSFISS       FIS
+HKISSFISHKISSFISHKISSFISHKISSFISH    KISS
+  FISHKISSFISHKISSFISHKISSFISHKISS  FISHK
+      SSFISHKISSFISHKISSFISHKISSFISHKISSF
+  ISHKISSFISHKISSFISHKISSFISHKISSF  ISHKI
+SSFISHKISSFISHKISSFISHKISSFISHKIS    SFIS
+  HKISSFISHKISSFISHKISSFISHKISS       FIS
+    HKISSFISHKISSFISHKISSFISHK         IS
+       SFISHKISSFISHKISSFISH            K
+         ISSFISHKISSFISHK   
+
+-->
+<div class="site-footer">
+  <div class="rainbow-text"> Thanks for visiting my page!! </div>
+  <br>
+  <div style="color:#333;font-size:16px">
+    [ page last updated: 2026/06/11 ] · press 4 for confetti · <a href="gifs.html">see all my favourite gifs</a> · <a href="#" id="fishMode">fish mode</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightboxImg" class="lightbox-img" alt="">
+  <div class="lightbox-title" id="lightboxTitle"></div>
+</div>
+
+</div><!--/page-wrapper-->
+
+</body>
+</html>

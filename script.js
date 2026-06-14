@@ -461,7 +461,7 @@ gbRef.orderByChild('timestamp').on('value', snap => {
 });
 
 const oldEmojis = [
-  
+  //people
   'imgs/emojis/emoji.gif',
   'imgs/emojis/emoji1.gif',
   'imgs/emojis/emoji2.gif',
@@ -498,14 +498,20 @@ const oldEmojis = [
   'imgs/emojis/emoji33.gif',
   'imgs/emojis/emoji34.gif',
   'imgs/emojis/emoji35.gif',
+  'imgs/emojis/emoji42.gif',
+
+  //hearts
   'imgs/emojis/emoji36.gif',
+  'imgs/emojis/emoji43.gif',
+  'imgs/emojis/emoji41.gif',
+  
+  //animals
   'imgs/emojis/emoji37.gif',
   'imgs/emojis/emoji38.gif',
   'imgs/emojis/emoji39.gif',
   'imgs/emojis/emoji40.gif',
-  'imgs/emojis/emoji41.gif',
-  'imgs/emojis/emoji42.gif',
-  'imgs/emojis/emoji43.gif',
+
+  //other
   'imgs/emojis/emoji44.gif',
 ];
 

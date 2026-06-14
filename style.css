@@ -730,6 +730,12 @@ body::before {
   word-wrap: break-word;
 }
 
+body.dark-mode .gb-editor {
+  background: #0d0d2e;
+  color: var(--text-main);
+  border-color: #4466ff;
+}
+
 .gb-editor.is-empty::before {
   content: attr(data-placeholder);
   color: #888;

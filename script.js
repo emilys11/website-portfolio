@@ -409,6 +409,13 @@ function buildGallery() {
     grid.appendChild(div);
   });
 }
+
+function openLightboxImg(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxTitle').textContent = '';
+  document.getElementById('lightbox').classList.add('open');
+}
+
 function openLightbox(art) {
   document.getElementById('lightboxImg').src = art.src;
   document.getElementById('lightboxTitle').textContent = art.title;
@@ -419,6 +426,14 @@ function closeLightbox(e) {
     document.getElementById('lightbox').classList.remove('open');
 }
 buildGallery();
+
+function makeProjectScreenshotsClickable() {
+  document.querySelectorAll('.project-ss').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.onclick = () => openLightboxImg(img.src);
+  });
+}
+makeProjectScreenshotsClickable();
 
 function escapeHTML(str) {
   return String(str)
@@ -504,7 +519,7 @@ const oldEmojis = [
   'imgs/emojis/emoji36.gif',
   'imgs/emojis/emoji43.gif',
   'imgs/emojis/emoji41.gif',
-  
+
   //animals
   'imgs/emojis/emoji37.gif',
   'imgs/emojis/emoji38.gif',

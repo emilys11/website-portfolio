@@ -803,6 +803,10 @@ body.dark-mode .gb-editor {
 .contact-list a { color: var(--cyan); text-decoration: none; }
 .contact-list a:hover { color: var(--hot-blue); text-decoration: underline; }
 
+.lightbox-title:empty {
+  display: none;
+}
+
 .lightbox {
   display: none;
   position: fixed; inset: 0;
@@ -811,7 +815,7 @@ body.dark-mode .gb-editor {
   align-items: center; justify-content: center; flex-direction: column;
 }
 .lightbox.open { display: flex; }
-.lightbox-img { max-width: 80vw; max-height: 70vh; border: 3px solid var(--hot-blue); box-shadow: 0 0 40px rgba(0, 25, 247, 0.5); }
+.lightbox-img { max-width: 1000px; max-height: 1000px; border: 3px solid var(--hot-blue); box-shadow: 0 0 40px rgba(0, 25, 247, 0.5); }
 .lightbox-title { color: var(--very-light-white); font-family: 'Nintendo', monospace; font-size: 12px; margin-top: 12px; }
 .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 32px;cursor: url("imgs/cursors/Wii Pointer Open Hand.cur"), pointer; color: var(--hot-blue); }
 

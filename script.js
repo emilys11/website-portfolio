@@ -39,7 +39,7 @@
             `-.___/   
 */
 
-  const firebaseConfig = {
+const firebaseConfig = {
     //oh nooo you found my api key please don't do anything malicious with it! (jk it's safe to show to the public)
     apiKey: "AIzaSyCzTk-m6SNfqM2EC1p2VeN-LlYs7ZVm8qg",
     authDomain: "emily-website-2cd48.firebaseapp.com",
@@ -135,6 +135,17 @@ const db = firebase.database();
   );
   observer.observe(mainNav);
 })();
+
+function wigglePic() {
+  const pic = document.getElementById('profilePic');
+  pic.src = 'imgs/aboutme4.png';
+  pic.style.transform = 'rotate(5deg)';
+
+  setTimeout(() => {
+    pic.src = 'imgs/aboutme3.png';
+    pic.style.transform = 'rotate(0deg)';
+  }, 600);
+}
 
 const tracks = [
   //instrumentals

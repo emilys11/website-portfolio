@@ -374,6 +374,10 @@ body::before {
   height: auto;
 }
 
+.profile-pic:hover{
+  cursor: url("imgs/cursors/Wii Pointer Open Hand.cur"), pointer;
+}
+
 .profile-pic::after {
   content: '';
   position: absolute;

@@ -150,6 +150,7 @@ const tracks = [
   { title: "Relaxed Scene", artist: "James Clarke", src: "audio/relaxedscene.mp3" },
 
   //has a singer
+  { title: "Try, Try, Try", artist: "The Smashing Pumpkins", src: "audio/trytrytry.mp3" },
   { title: "Futile Devices", artist: "Sufjan Stevens (Doveman Remix)", src: "audio/futiledevices.mp3" }, 
   { title: "Back To The Old House", artist: "The Smiths", src: "audio/backtotheoldhouse.mp3" },
   { title: "I'll Change For You", artist: "Mitski", src: "audio/illchangeforyou.mp3" },
@@ -162,6 +163,7 @@ const tracks = [
   { title: "In The Rain", artist: "Addison Rae", src: "audio/intherain.mp3" },
   { title: "Moonlight On The River", artist: "Mac DeMarco", src: "audio/moonlightontheriver.mp3" },
   { title: "Mrs Magic (Strings Version)", artist: "Strawberry Guy", src: "audio/mrsmagic.mp3" },
+  
   { title: "My Dahlia", artist: "The Smashing Pumpkins", src: "audio/mydahlia.mp3" },
   { title: "Take A Picture", artist: "FILTER", src: "audio/takeapicture.mp3" },
   { title: "World, Hold On (Children of the Sky)", artist: "Bob Sinclair", src: "audio/worldholdon.mp3" },
@@ -440,7 +442,7 @@ gbRef.orderByChild('timestamp').on('value', snap => {
     entries.push(child.val());
   });
 
-  entries.sort((a, b) => a.timestamp - b.timestamp);
+  entries.sort((a, b) => b.timestamp - a.timestamp);
 
   entries.forEach(entry => {
     const d = document.createElement('div');
@@ -451,7 +453,7 @@ gbRef.orderByChild('timestamp').on('value', snap => {
         <span class="gb-name">✦ ${escapeHTML(entry.name)}</span>
         <span class="gb-date">${escapeHTML(entry.date)}</span>
       </div>
-      <div class="gb-text">${escapeHTML(entry.msg)}</div>
+      <div class="gb-text">${entry.msg}</div>
     `;
 
     div.appendChild(d);
@@ -459,25 +461,68 @@ gbRef.orderByChild('timestamp').on('value', snap => {
 });
 
 const oldEmojis = [
-  ':-)', ':-D', ':-(', ';-)', ':-P', ':-O', 'B-)', '>:-(',
-  ':-*', ':-|', '(^_^)', '(>_<)', '(T_T)', '(*_*)', '(~_~)',
-  '(≧◡≦)', '(◕‿◕)', '(✿◠‿◠)', '(ノ◕ヮ◕)ノ', '(ʘ‿ʘ)',
-  '♥','♪','★','☆','✿','❀','☮','♦','♠','♣'
+  
+  'imgs/emojis/emoji.gif',
+  'imgs/emojis/emoji1.gif',
+  'imgs/emojis/emoji2.gif',
+  'imgs/emojis/emoji3.gif',
+  'imgs/emojis/emoji4.gif',
+  'imgs/emojis/emoji5.gif',
+  'imgs/emojis/emoji6.gif',
+  'imgs/emojis/emoji7.gif',
+  'imgs/emojis/emoji8.gif',
+  'imgs/emojis/emoji9.gif',
+  'imgs/emojis/emoji10.gif',
+  'imgs/emojis/emoji11.gif',
+  'imgs/emojis/emoji12.gif',
+  'imgs/emojis/emoji13.gif',
+  'imgs/emojis/emoji14.gif',
+  'imgs/emojis/emoji15.gif',
+  'imgs/emojis/emoji16.gif',
+  'imgs/emojis/emoji17.gif',
+  'imgs/emojis/emoji18.gif',
+  'imgs/emojis/emoji19.gif',
+  'imgs/emojis/emoji20.gif',
+  'imgs/emojis/emoji21.gif',
+  'imgs/emojis/emoji22.gif',
+  'imgs/emojis/emoji23.gif',
+  'imgs/emojis/emoji24.gif',
+  'imgs/emojis/emoji25.gif',
+  'imgs/emojis/emoji26.gif',
+  'imgs/emojis/emoji27.gif',
+  'imgs/emojis/emoji28.gif',
+  'imgs/emojis/emoji29.gif',
+  'imgs/emojis/emoji30.gif',
+  'imgs/emojis/emoji31.gif',
+  'imgs/emojis/emoji32.gif',
+  'imgs/emojis/emoji33.gif',
+  'imgs/emojis/emoji34.gif',
+  'imgs/emojis/emoji35.gif',
+  'imgs/emojis/emoji36.gif',
+  'imgs/emojis/emoji37.gif',
+  'imgs/emojis/emoji38.gif',
+  'imgs/emojis/emoji39.gif',
+  'imgs/emojis/emoji40.gif',
+  'imgs/emojis/emoji41.gif',
+  'imgs/emojis/emoji42.gif',
+  'imgs/emojis/emoji43.gif',
+  'imgs/emojis/emoji44.gif',
 ];
 
 function submitGuestbook() {
   const nameEl = document.getElementById('gbName');
   const msgEl  = document.getElementById('gbMsg');
   const name   = nameEl.value.trim();
-  const msg    = msgEl.value.trim();
+  const msg = msgEl.innerHTML;
+  msgEl.innerHTML = '';
 
   if (!name || !msg) {
     alert('please fill in your name and message!! (◕‿◕✿)');
     return;
   }
 
-  if (name.length > 30 || msg.length > 500) {
-    alert('message too long!! keep name ≤30 chars and message ≤500 chars');
+  if (name.length > 30 || msg.length > 2000) {
+    alert('message too long!! keep name ≤30 chars and message ≤2000 chars');
     return;
   }
 
@@ -504,24 +549,49 @@ function buildEmojiPicker() {
 
   picker.innerHTML = '';
 
-  oldEmojis.forEach(emoji => {
+  oldEmojis.forEach(gif => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.textContent = emoji;
     btn.className = 'emoji-btn';
+    btn.innerHTML = `<img src="${gif}" height="18px">`;
 
     btn.onclick = () => {
-      msgBox.value += emoji;
       msgBox.focus();
+
+      const img = document.createElement('img');
+      img.src = gif;
+      img.className = 'guestbook-emoji';
+
+      const sel = window.getSelection();
+
+      if (sel.rangeCount && msgBox.contains(sel.anchorNode)) {
+        const range = sel.getRangeAt(0);
+        range.insertNode(img);
+        range.setStartAfter(img);
+        range.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+      } else {
+        msgBox.appendChild(img);
+      }
     };
 
     picker.appendChild(btn);
   });
 }
 
+function checkGbEditorEmpty() {
+  const msgEl = document.getElementById('gbMsg');
+  const isEmpty = msgEl.textContent.trim() == '' && msgEl.querySelectorAll('img').length === 0;
+  msgEl.classList.toggle('is-empty', isEmpty);
+}
+
 
 
 buildEmojiPicker();
+
+document.getElementById('gbMsg').addEventListener('input', checkGbEditorEmpty);
+checkGbEditorEmpty();
 
 (function() {
   const btn  = document.getElementById('darkToggle');

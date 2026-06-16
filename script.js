@@ -136,6 +136,9 @@ const db = firebase.database();
   observer.observe(mainNav);
 })();
 
+const preload = new Image();
+preload.src = 'imgs/aboutme4.png';
+
 function wigglePic() {
   const pic = document.getElementById('profilePic');
   pic.src = 'imgs/aboutme4.png';

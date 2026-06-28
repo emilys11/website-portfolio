@@ -870,26 +870,8 @@ body.dark-mode .gb-editor {
 
 
 
-@media (max-width: 900px) {
-  body {
-    zoom: 0.6;
-  }
-
-  .sticky-nav {
-    zoom: calc(1 / 0.6);
-    width: calc(100% / 0.6);
-    left: 0;
-  }
-
-  .dark-toggle {
-    zoom: calc(1 / 0.6);
-    bottom: 12px;
-    right: 12px;
-  }
-
-  .lightbox {
-    zoom: calc(1 / 0.6);
-    width: calc(100% / 0.6);
-    height: calc(100% / 0.6);
-  }
+@media (max-width: 600px) {
+  .main-table, .main-table tbody, .main-table tr, .main-table td { display: block; width: 100%; }
+  .col-left { width: 100%; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }

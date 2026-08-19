@@ -152,7 +152,6 @@ function wigglePic() {
 
 const tracks = [
   //instrumentals
-  { title: "Golf - Course Intro OST", artist: "Wii Sports", src: "audio/golf.mp3" },
   { title: "Lease (Slowed)", artist: "Takeshi Abo", src: "audio/lease.mp3" },
   { title: "distant ocean", artist: "alyzea", src: "audio/distantocean.mp3" },
   { title: "Fishing", artist: "Wii Play", src: "audio/fishing.mp3" },

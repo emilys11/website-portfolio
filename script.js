@@ -401,11 +401,7 @@ const artworks = [
   { title: "2026/06/16", src: "imgs/art/bird.png"},
   { title: "2026/05/27", src: "imgs/art/peaCOCKS.png"},
   { title: "2026/05/28", src: "imgs/art/snail.png"},
-  { title: "2025/07/31", src: "imgs/art/samsungmusic.png"},
-  { title: "2023/06/29", src: "imgs/art/heels.jpg" },
-  { title: "2022/11/04", src: "imgs/art/doomergirl.jpg" },
-  { title: "2026/03/23", src: "imgs/art/totenbergalbum.jpg"},
-  { title: "2026/03/11", src: "imgs/art/alllamps.png"},
+  { title: "2025/07/31", src: "imgs/art/samsungmusic.png"}
 ];
 
 function buildGallery() {
